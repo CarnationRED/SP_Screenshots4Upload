@@ -11,6 +11,7 @@ using System.Linq;
 
 public class Screenshot4Upload : MonoBehaviour
 {
+	static bool isAndroid = Application.platform == RuntimePlatform.Android;
 	static bool snapRequested;
 	static bool usePlaneCam;
 	static Camera cam1, cam2;
@@ -35,7 +36,7 @@ public class Screenshot4Upload : MonoBehaviour
 		   .FirstOrDefault();
 		if (FreeCamA != null)
 		{
-			Type fc = FreeCamA.GetTypes().Where(x => x.Name == "FreeCamMainScript").FirstOrDefault();
+			Type fc = FreeCamA.GetTypes().Where(x => x.Name ==(isAndroid? "FreeCamMainAndroid" : "FreeCamMainScript")).FirstOrDefault();
 			FreeCamType = fc;
 			if (fc != null)
 			{
@@ -128,6 +129,10 @@ public class Screenshot4Upload : MonoBehaviour
 			KillFinder();
 	}
 
+	static Vector2 oldPosition1, oldPosition2, oldPosition3;
+	static Touch t1, t2, t3;
+	static float touchStart;
+
 	void LateUpdate()
 	{
 		if (state.IsInDesigner)
@@ -147,8 +152,28 @@ public class Screenshot4Upload : MonoBehaviour
 			else
 				scriptEnabled = false;
 		else
-			if (Input.GetKeyDown(KeyCode.F12))
-			snapRequested = true;
+		{
+			if (isAndroid)
+			{
+				if (Input.touchCount == 3)
+				{
+					if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(1).phase == TouchPhase.Began || Input.GetTouch(2).phase == TouchPhase.Began)
+					{
+						touchStart = Time.unscaledTime;
+					}
+				}
+				else if(Input.touchCount==0)
+				{
+					if (Time.unscaledTime - touchStart < 0.2f)
+						snapRequested = true;
+				}
+			}
+			else
+			{
+				if (Input.GetKeyDown(KeyCode.F12))
+					snapRequested = true;
+			}
+		}
 	}
 
 	void GetFreeCamPos()
@@ -156,7 +181,7 @@ public class Screenshot4Upload : MonoBehaviour
 		if (FreeCamT == null || FreeCamEnabled == null)
 			return;
 		FreenCam = FindObjectOfType(FreeCamType);
-		if (!(bool)FreeCamEnabled.GetValue(FreenCam)) return;
+			if (!(bool)FreeCamEnabled.GetValue(FreenCam)) return;
 		Transform t = FreeCamT.GetValue(FreenCam) as Transform;
 		if (t == null)
 			return;
@@ -234,11 +259,11 @@ public class Screenshot4Upload : MonoBehaviour
 
 	private void OnGUI()
 	{
-		GUI.Label(new Rect(550, 250, 250, 350), "in designer: " + state.IsInDesigner + "\r\nin level:" + IsInLevel + "\r\nScript valid:" +( script!=null?(""+(script.RealObject!=null)):""));
+		//GUI.Label(new Rect(550, 250, 250, 350), "in designer: " + state.IsInDesigner + "\r\nin level:" + IsInLevel + "\r\nScript valid:" + (script != null ? ("" + (script.RealObject != null)) : ""));
 		trys();
-		if (IsInLevel) return;
-		GUI.Label(new Rect(50, 50, 250, 350), snapMessage);
-		GUI.Label(new Rect(350, 50, 250, 350), hackMessage);
-		GUI.Label(new Rect(550, 50, 250, 350), "l: " + l + "\r\nIsInDesigner:" + state.IsInDesigner + "\r\nscriptFinder valid: " + (scriptFinder != null));
+		//if (IsInLevel) return;
+		//GUI.Label(new Rect(50, 50, 250, 350), snapMessage);
+		//GUI.Label(new Rect(350, 50, 250, 350), hackMessage);
+		//GUI.Label(new Rect(550, 50, 250, 350), "l: " + l + "\r\nIsInDesigner:" + state.IsInDesigner + "\r\nscriptFinder valid: " + (scriptFinder != null));
 	}
 }

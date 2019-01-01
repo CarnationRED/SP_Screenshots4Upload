@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ModManifest buildID="22db34ea-f955-43ea-adec-facd0a26bb74">
-  <Mod name="Upload with Screenshots" author="Carnation RED" versionMajor="1" versionMinor="0" loadPriority="8" lastUpdated="1/1/2019 5:07:57 AM" apiVersion="1.0.0.0" description="">
+<ModManifest buildID="a4b9226f-b9f6-403e-a891-ad1a23ed6826">
+  <Mod name="Upload with Screenshots" author="Carnation RED" versionMajor="1" versionMinor="0" loadPriority="8" lastUpdated="1/1/2019 12:14:42 PM" apiVersion="1.0.0.0" description="Use 3-finger tap when playing to take screenshots.&#xA;使用三指敲击触碰来截图">
     <Steam title="" visibility="Public" previewPath="" language="English" tags="">
       <description></description>
     </Steam>
