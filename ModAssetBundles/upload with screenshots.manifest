@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 2777866118
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 72f2e8b249ee8662e1309a1ddf6af1fe
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d57752d5928901573f9b9ee022c7225d
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 463027472, guid: 3cde37892b4f7594bbbc3ac6c74ecab7, type: 3}
+- Class: 114
+  Script: {fileID: 281103463, guid: 0ae1b6aafcdc6bc46b35491a5c18721e, type: 3}
+- Class: 114
+  Script: {fileID: 148421896, guid: 0ae1b6aafcdc6bc46b35491a5c18721e, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/_ModAssets_/ModManifest.xml
+- Assets/_ModAssets_/Map Plugin1.prefab
+- Assets/_ModAssets_/UploadwithScreenshots-Assembly-CSharp.dll.bytes
+- Assets/_ModAssets_/Map Plugin.prefab
+Dependencies: []

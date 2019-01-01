@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModManifest buildID="22db34ea-f955-43ea-adec-facd0a26bb74">
+  <Mod name="Upload with Screenshots" author="Carnation RED" versionMajor="1" versionMinor="0" loadPriority="8" lastUpdated="1/1/2019 5:07:57 AM" apiVersion="1.0.0.0" description="">
+    <Steam title="" visibility="Public" previewPath="" language="English" tags="">
+      <description></description>
+    </Steam>
+    <GameObjects>
+      <GameObject name="Map Plugin" path="Assets/_ModAssets_/Map Plugin.prefab" />
+      <GameObject name="Map Plugin1" path="Assets/_ModAssets_/Map Plugin1.prefab" />
+    </GameObjects>
+    <Assets />
+    <Assemblies>
+      <Assembly name="UploadwithScreenshots-Assembly-CSharp.dll" path="Assets/_ModAssets_/UploadwithScreenshots-Assembly-CSharp.dll.bytes" isProjectAssembly="true" />
+    </Assemblies>
+    <Sections>
+      <SimplePlanesMod apiVersion="1.0.0.0">
+        <Maps />
+        <Levels />
+        <Parts />
+        <DesignerPlugins>
+          <DesignerPlugin objectName="Map Plugin" />
+        </DesignerPlugins>
+        <MapPlugins>
+          <MapPlugin objectName="Map Plugin" />
+          <MapPlugin objectName="Map Plugin1" />
+        </MapPlugins>
+        <PersistentObjects />
+      </SimplePlanesMod>
+    </Sections>
+  </Mod>
+</ModManifest>
